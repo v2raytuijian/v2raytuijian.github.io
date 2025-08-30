@@ -1,4 +1,4 @@
-# V2ray推荐 - 8月15日18.2M/S|免费Shadowrocket/V2ray/SSR/Clash节点推荐，VPN节点购买推荐  更新时间 2025-08-15 09:56:17
+# V2ray 推荐 - 8月30日19.1M/S|免费Shadowrocket/Clash/SSR/V2ray节点推荐，V2rayC梯子购买推荐  更新时间 2025-08-30 10:56:02
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://v2raytuijian.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://v2raytuijian.github.io/uploads/2025/08/0-20250815.yaml
-- https://v2raytuijian.github.io/uploads/2025/08/1-20250815.yaml
-- https://v2raytuijian.github.io/uploads/2025/08/2-20250815.yaml
-- https://v2raytuijian.github.io/uploads/2025/08/3-20250815.yaml
-- https://v2raytuijian.github.io/uploads/2025/08/4-20250815.yaml
+- https://v2raytuijian.github.io/uploads/2025/08/0-20250830.yaml
+- https://v2raytuijian.github.io/uploads/2025/08/1-20250830.yaml
+- https://v2raytuijian.github.io/uploads/2025/08/2-20250830.yaml
+- https://v2raytuijian.github.io/uploads/2025/08/3-20250830.yaml
+- https://v2raytuijian.github.io/uploads/2025/08/4-20250830.yaml
 
 ### V2ray订阅链接
 
-- https://v2raytuijian.github.io/uploads/2025/08/0-20250815.txt
-- https://v2raytuijian.github.io/uploads/2025/08/1-20250815.txt
-- https://v2raytuijian.github.io/uploads/2025/08/2-20250815.txt
-- https://v2raytuijian.github.io/uploads/2025/08/3-20250815.txt
-- https://v2raytuijian.github.io/uploads/2025/08/4-20250815.txt
+- https://v2raytuijian.github.io/uploads/2025/08/0-20250830.txt
+- https://v2raytuijian.github.io/uploads/2025/08/1-20250830.txt
+- https://v2raytuijian.github.io/uploads/2025/08/2-20250830.txt
+- https://v2raytuijian.github.io/uploads/2025/08/3-20250830.txt
+- https://v2raytuijian.github.io/uploads/2025/08/4-20250830.txt
 
 ### Sing-box订阅链接
 
-- https://v2raytuijian.github.io/uploads/2025/08/20250815.json
+- https://v2raytuijian.github.io/uploads/2025/08/20250830.json
 
 ## 更多clash节点订阅 ：
 
