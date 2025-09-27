@@ -98,6 +98,9 @@
                                     <a href="/" class="nav-link text-left">首页</a>
                                 </li>
                                                                 <li>
+                                    <a href="/free-nodes/" class="nav-link text-left">免费节点</a>
+                                </li>
+                                                                <li>
                                     <a href="/paid-subscribe/" class="nav-link text-left">推荐机场</a>
                                 </li>
                                                                 <li>
@@ -138,7 +141,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node免费节点站" data-url="https://clashnode.github.io">
                 <div class="xcblog-blog-detail xcblog-blog-detail-defined">
                       <h2>引言：当网络自由遇见精准控制</h2>  <p>在全球化互联网时代，我们既需要突破地域限制访问国际资源，又希望本地服务能高速直达。Shadowrocket作为iOS平台最强大的代理工具之一，其URL开关功能就像网络流量的智能交通灯系统——它能精确识别每个网络请求的目的地，自动分配最优传输路径。本文将带您深入探索这一功能的配置艺术，让您的网络体验既自由又高效。  </p>  <h2>一、认识Shadowrocket的规则引擎</h2>  <h3>1.1 工具定位与核心价值</h3>  <p>不同于普通VPN工具的全流量代理模式，Shadowrocket更像一个"网络流量调度中心"。它支持SS/SSR/Vmess/Trojan等多种协议，其革命性创新在于：<br /> - <strong>细粒度控制</strong>：可针对单个域名/URL路径设置代理策略<br /> - <strong>智能分流</strong>：国内直连与海外代理的自动切换<br /> - <strong>性能优化</strong>：通过规则匹配减少不必要的代理消耗  </p>  <h3>1.2 URL开关的本质解析</h3>  <p>这个功能实际上构建了一个"网络访问白名单+黑名单"系统：<br /> - <strong>正向规则</strong>：如<code>*.google.com</code>走代理，解决学术研究需求<br /> - <strong>反向规则</strong>：如<code>*.cn</code>直连，保证微信/支付宝等本地服务速度<br /> - <strong>通配符机制</strong>：<code>*</code>代表多级子域，<code>?</code>匹配单个字符，实现灵活匹配  </p>  <h2>二、配置实战：从入门到精通</h2>  <h3>2.1 基础环境搭建（分步图解）</h3>  <p><strong>步骤1：节点导入的三种方式</strong><br /> - 扫码导入：适用于机场订阅链接<br /> - 手动输入：适合自建服务器用户<br /> - 配置文件导入：批量部署的最佳选择  </p>  <p><strong>步骤2：连通性验证技巧</strong><br /> <code>markdown 1. 点击节点右侧的延迟测试图标 2. 使用内置的「网络诊断」工具 3. 访问ip.sb观察出口IP变化</code></p>  <h3>2.2 URL规则配置详解</h3>  <p><strong>情景案例：科研工作者的配置方案</strong><br /> ```javascript // 学术资源走代理 DOMAIN-SUFFIX,arxiv.org,Proxy DOMAIN-KEYWORD,sci-hub,Proxy</p>  <p>// 视频服务智能分流 DOMAIN-SUFFIX,netflix.com,Proxy DOMAIN-SUFFIX,bilibili.com,DIRECT</p>  <p>// 金融类强制直连 IP-CIDR,139.196.0.0/16,DIRECT ```</p>  <p><strong>高级技巧：</strong><br /> - 使用<code>FINAL</code>规则作为兜底策略<br /> - 利用<code>GEOIP</code>实现国家级别分流<br /> - 通过<code>URL-REGEX</code>支持正则表达式匹配  </p>  <h2>三、性能调优与问题排查</h2>  <h3>3.1 速度优化方法论</h3>  <ul> <li><strong>CDN加速</strong>：为代理节点启用<code>WS+TLS</code>传输  </li> <li><strong>规则精简</strong>：合并相似规则减少匹配耗时  </li> <li><strong>缓存机制</strong>：开启「规则缓存」提升响应速度  </li> </ul>  <h3>3.2 常见故障树分析</h3>  <p><code>mermaid graph TD     A[无法访问目标网站] --&gt; B{代理状态检测}     B --&gt;|正常| C[检查规则优先级]     B --&gt;|异常| D[测试节点连通性]     C --&gt; E[是否存在规则冲突]     D --&gt; F[更换传输协议]</code></p>  <h2>四、创新应用场景探索</h2>  <h3>4.1 企业级应用方案</h3>  <ul> <li><strong>混合云访问</strong>：内部系统直连+公有云代理  </li> <li><strong>安全审计</strong>：敏感域名强制走企业网关  </li> </ul>  <h3>4.2 个人数字生活优化</h3>  <ul> <li><strong>跨境电商</strong>：自动切换目标国IP  </li> <li><strong>游戏加速</strong>：按服务器IP动态分流  </li> </ul>  <h2>专业点评：网络控制艺术的进化</h2>  <p>Shadowrocket的URL开关功能代表了代理技术从"粗放式"向"手术刀式"的演进。其精妙之处在于：  </p>  <ol> <li><strong>协议无关性</strong>：无论底层使用何种代理协议，上层规则系统始终保持一致  </li> <li><strong>时空适应性</strong>：可根据时间段自动切换规则（需配合脚本实现）  </li> <li><strong>隐私保护维度</strong>：支持DNS-over-HTTPS等增强功能  </li> </ol>  <p>这种设计哲学呼应了现代网络使用的核心需求——在开放与安全、速度与稳定之间找到动态平衡点。值得注意的是，随着IPv6的普及和QUIC协议的推广，未来版本可能需要引入新的规则语法来应对这些技术变革。  </p>  <h2>结语：掌控流量的智慧</h2>  <p>通过本文的深度解析，相信您已领略到Shadowrocket远超普通代理工具的精密控制能力。建议从简单规则开始，逐步构建符合个人使用习惯的规则库。记住，优秀的网络配置应该像呼吸般自然——您感受不到它的存在，但它始终在为您提供最佳的网络"空气质量"。</p>                 </div>
                 <div class="clearfix"></div>
@@ -154,16 +157,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-146325.htm" title="从GitHub获取v2rayng：解锁网络自由的完整指南与深度体验">从GitHub获取v2rayng：解锁网络自由的完整指南与深度体验</a></li>
-                        <li class="py-2"><a href="/news/article-148796.htm" title="全面掌握ShadowRocket：解锁网络自由的专业指南">全面掌握ShadowRocket：解锁网络自由的专业指南</a></li>
-                        <li class="py-2"><a href="/news/article-145368.htm" title="网络代理工具双雄对决：Clash与蓝帆云的深度解析与选择指南">网络代理工具双雄对决：Clash与蓝帆云的深度解析与选择指南</a></li>
-                        <li class="py-2"><a href="/news/article-148213.htm" title="突破数字高墙：V2Ray无法访问YouTube的终极解决方案全景解析">突破数字高墙：V2Ray无法访问YouTube的终极解决方案全景解析</a></li>
                         <li class="py-2"><a href="/news/article-145594.htm" title="Clash连接故障全攻略：从诊断到修复的一站式解决方案">Clash连接故障全攻略：从诊断到修复的一站式解决方案</a></li>
-                        <li class="py-2"><a href="/news/article-149887.htm" title="突破网络限制：科学上网的终极配置指南与实用技巧">突破网络限制：科学上网的终极配置指南与实用技巧</a></li>
-                        <li class="py-2"><a href="/news/article-149204.htm" title="掌握网络自由：大米科学上网全面指南与深度解析">掌握网络自由：大米科学上网全面指南与深度解析</a></li>
+                        <li class="py-2"><a href="/news/article-152758.htm" title="掌握网络自由之门：全方位解析Clash官网访问与使用指南">掌握网络自由之门：全方位解析Clash官网访问与使用指南</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-21-clash-node-daily-updates.htm" title="V2ray 推荐 - 9月21日19.8M/S|免费V2ray节点/SSR/Clash节点/Shadowrocket节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 9月21日19.8M/S|免费V2ray节点/SSR/Clash节点/Shadowrocket节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-16-free-node-subscribe.htm" title="V2ray 推荐 - 9月16日20.4M/S|免费V2ray节点/Shadowrocket节点/Clash节点/SSR节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 9月16日20.4M/S|免费V2ray节点/Shadowrocket节点/Clash节点/SSR节点推荐，V2rayC梯子购买推荐</a></li>
                         <li class="py-2"><a href="/news/article-147058.htm" title="掌握Shadowrocket的URL智能路由：打造个性化网络加速方案">掌握Shadowrocket的URL智能路由：打造个性化网络加速方案</a></li>
-                        <li class="py-2"><a href="/news/article-146694.htm" title="深度解析安卓Clash耗电之谜：从原理到实战优化指南">深度解析安卓Clash耗电之谜：从原理到实战优化指南</a></li>
-                        <li class="py-2"><a href="/news/article-145918.htm" title="全面掌握k3官改clash：从原理到实战的高级代理管理指南">全面掌握k3官改clash：从原理到实战的高级代理管理指南</a></li>
+                        <li class="py-2"><a href="/news/article-152392.htm" title="深度剖析影梭科学上网工具：从原理到实践的完整指南">深度剖析影梭科学上网工具：从原理到实践的完整指南</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-20-free-node-subscribe.htm" title="V2ray 推荐 - 9月20日18M/S|免费V2ray节点/SSR/Clash节点/Shadowrocket节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 9月20日18M/S|免费V2ray节点/SSR/Clash节点/Shadowrocket节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/news/article-150944.htm" title="家庭网络自由之路：手把手教你用V2Ray武装路由器实现全局代理">家庭网络自由之路：手把手教你用V2Ray武装路由器实现全局代理</a></li>
+                        <li class="py-2"><a href="/news/article-153123.htm" title="LEDE用户必看：全面解决V2Ray版本过旧问题的升级实战指南">LEDE用户必看：全面解决V2Ray版本过旧问题的升级实战指南</a></li>
+                        <li class="py-2"><a href="/news/article-151654.htm" title="小米手机Clash设置全攻略：解锁数字世界的自由之门">小米手机Clash设置全攻略：解锁数字世界的自由之门</a></li>
                     </ul>
     </div>
 </div>
@@ -175,7 +178,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
             </li>
                     </ul>
     </div>
@@ -190,8 +196,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="copyright">
-                                                <p>
+                                                <p>本站内容仅供学习与技术研究用途，无意传播或倡导任何违反法律法规的行为。在此声明：用户须自行了解所在地法律法规，合法合规使用；因使用不当产生的法律责任，与本站及作者无关；请在使用前仔细阅读本声明，继续使用即视为同意以上条款。</p>
+                    <p>
                                                 <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
                                                 <a href="/paid-subscribe/">推荐机场</a> |
                                                 <a href="/news/">新闻资讯</a> |
                                                 <a href="/client.htm">客户端</a> |
@@ -200,7 +208,7 @@
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                            <p>
+                                                <p>
                                 <a href="/">V2ray推荐 免费节点中文站</a> 版权所有 Powered by WordPress
                             </p>
                         </div>

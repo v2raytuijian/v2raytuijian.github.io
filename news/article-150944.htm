@@ -98,6 +98,9 @@
                                     <a href="/" class="nav-link text-left">首页</a>
                                 </li>
                                                                 <li>
+                                    <a href="/free-nodes/" class="nav-link text-left">免费节点</a>
+                                </li>
+                                                                <li>
                                     <a href="/paid-subscribe/" class="nav-link text-left">推荐机场</a>
                                 </li>
                                                                 <li>
@@ -138,7 +141,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node免费节点站" data-url="https://clashnode.github.io">
                 <div class="xcblog-blog-detail xcblog-blog-detail-defined">
                       <p>在这个数字化时代，网络自由已成为现代人的基本需求。随着网络审查日益严格，越来越多用户开始寻求突破网络限制的解决方案。V2Ray作为新一代代理工具，凭借其强大的功能和出色的隐蔽性，正逐渐取代传统的VPN和Shadowsocks，成为技术爱好者的首选。本文将带领你深入了解如何在路由器层面部署V2Ray，实现全家设备的无感科学上网体验。</p>  <h2>为什么选择路由器级V2Ray部署？</h2>  <p>传统代理方案往往需要在每个终端设备上单独配置，不仅操作繁琐，而且难以覆盖智能家居等物联网设备。而在路由器上部署V2Ray则能一举解决所有问题——任何连接到路由器的设备，无论是手机、平板、智能电视还是游戏主机，都能自动享受加密代理服务。这种"一劳永逸"的解决方案特别适合多设备家庭环境。</p>  <p>更值得一提的是，路由器级代理能有效避免移动设备在不同网络间切换时的代理中断问题。想象一下，当你的手机从家中WiFi切换到移动数据时，传统代理应用需要重新连接，而路由器代理则完全不存在这种困扰，因为所有流量在离开家庭网络前就已经被妥善处理。</p>  <h2>前期准备：硬件与软件的双重保障</h2>  <h3>硬件选择：寻找合适的路由器</h3>  <p>并非所有路由器都能胜任V2Ray部署任务。理想的硬件应当具备以下特点： - 处理器性能足够（建议双核800MHz以上） - 内存容量充裕（128MB以上为佳） - 支持第三方固件刷写</p>  <p>市面上常见的兼容型号包括： - 华硕RT-AC系列 - 网件R7000 - 小米路由器Pro - 任何搭载OpenWrt系统的设备</p>  <h3>软件准备：固件与工具</h3>  <p>在开始安装前，你需要准备： 1. 最新版V2Ray核心程序（可从GitHub官方仓库获取） 2. WinSCP或FileZilla等文件传输工具 3. PuTTY或Terminal等SSH客户端 4. 可靠的V2Ray服务订阅链接或手动配置文件</p>  <p>特别提醒：选择服务提供商时，务必考察其节点质量、隐私政策和历史信誉。廉价的机场服务往往伴随着数据泄露风险。</p>  <h2>详细安装指南：从零到精通的完整流程</h2>  <h3>第一步：路由器基础环境配置</h3>  <ol> <li><p><strong>刷写兼容固件</strong>： 对于大多数消费级路由器，首先需要刷入OpenWrt或Padavan等第三方固件。以OpenWrt为例：</p>  <ul> <li>下载与路由器型号完全匹配的固件镜像</li> <li>通过原厂管理界面的固件升级功能进行刷写</li> <li>等待约5分钟完成自动重启</li> </ul></li> <li><p><strong>基础网络设置</strong>： <code>bash uci set network.lan.ipaddr='192.168.1.1' uci commit network /etc/init.d/network restart</code> 这段代码将设置路由器的管理IP地址，请根据你的子网规划进行调整。</p></li> </ol>  <h3>第二步：V2Ray核心安装</h3>  <ol> <li><p><strong>上传二进制文件</strong>： 使用SCP将下载的v2ray-linux-arm64-v8a（根据CPU架构选择正确版本）上传至<code>/usr/bin/</code>目录，并重命名为<code>v2ray</code>。</p></li> <li><p><strong>权限设置</strong>： <code>bash chmod +x /usr/bin/v2ray mkdir -p /etc/v2ray touch /etc/v2ray/config.json</code></p></li> <li><p><strong>依赖安装</strong>： OpenWrt系统需要额外安装geoip组件： <code>bash opkg update opkg install v2ray-geoip</code></p></li> </ol>  <h3>第三步：配置文件优化艺术</h3>  <p>标准的config.json文件包含以下关键部分： <code>json {   "inbounds": [{     "port": 1080,     "protocol": "socks",     "settings": {       "auth": "noauth",       "udp": true     }   }],   "outbounds": [{     "protocol": "vmess",     "settings": {       "vnext": [{         "address": "your_server_address",         "port": 443,         "users": [{           "id": "your_uuid",           "alterId": 64         }]       }]     },     "streamSettings": {       "network": "ws",       "security": "tls",       "wsSettings": {         "path": "/your_path"       }     }   }] }</code></p>  <p>高级用户可以考虑添加： - 路由规则（分流国内外流量） - 多用户配置（家庭共享） - 负载均衡（多服务器自动切换）</p>  <h3>第四步：系统集成与自动化</h3>  <ol> <li><p><strong>创建init脚本</strong>： 在<code>/etc/init.d/v2ray</code>中添加： ```bash</p>  <h1>!/bin/sh /etc/rc.common  <p>START=99 start() {  /usr/bin/v2ray -config /etc/v2ray/config.json &amp; } stop() {  killall v2ray } ```</p></li> <li><p><strong>设置开机自启</strong>： <code>bash chmod +x /etc/init.d/v2ray /etc/init.d/v2ray enable</code></p></li> <li><p><strong>防火墙规则</strong>： <code>bash iptables -t nat -A PREROUTING -p tcp -j V2RAY iptables -t nat -A OUTPUT -p tcp -j V2RAY</code></p></li> </ol>  <h2>疑难排解：常见问题深度解析</h2>  <p><strong>Q1：连接成功但网速极慢</strong> A：这可能由以下原因导致： - 服务器线路质量差（尝试更换节点） - 加密方式过高（将alterId降至32或16） - 路由器性能瓶颈（考虑硬件升级）</p>  <p><strong>Q2：部分网站无法访问</strong> A：典型的分流规则问题，建议： <code>json "routing": {   "domainStrategy": "IPIfNonMatch",   "rules": [{     "type": "field",     "domain": ["geosite:cn"],     "outboundTag": "direct"   }] }</code></p>  <p><strong>Q3：系统日志显示权限拒绝</strong> A：运行以下命令修复： <code>bash chown -R nobody:nogroup /etc/v2ray setcap cap_net_bind_service=+ep /usr/bin/v2ray</code></p>  <h2>安全加固：保护你的数字边界</h2>  <ol> <li><p><strong>定期更新机制</strong>： ```bash crontab -e</p>  <h1>添加以下内容（每周日凌晨3点自动更新）  <p>0 3 * * 0 /usr/bin/update-v2ray.sh ```</p></li> <li><p><strong>流量伪装进阶</strong>： 考虑使用WebSocket+TLS+Web组合，配合合法的域名和证书，使代理流量与正常HTTPS流量完全无法区分。</p></li> <li><p><strong>日志管理</strong>： 禁用详细日志记录，防止敏感信息泄露： <code>json "log": {  "access": "/dev/null",  "error": "/dev/null",  "loglevel": "warning" }</code></p></li> </ol>  <h2>性能调优：榨干硬件每一分潜力</h2>  <ol> <li><p><strong>内存优化</strong>： 在config.json中添加： <code>json "policy": {  "levels": {    "0": {      "handshake": 2,      "connIdle": 120    }  } }</code></p></li> <li><p><strong>多核利用</strong>： 启动多个V2Ray实例并配置负载均衡： <code>bash taskset -c 0 /usr/bin/v2ray -config /etc/v2ray/config1.json &amp; taskset -c 1 /usr/bin/v2ray -config /etc/v2ray/config2.json &amp;</code></p></li> <li><p><strong>TCP参数优化</strong>： <code>bash echo "net.core.rmem_max=4194304" &gt;&gt; /etc/sysctl.conf echo "net.core.wmem_max=4194304" &gt;&gt; /etc/sysctl.conf sysctl -p</code></p></li> </ol>  <h2>未来展望：V2Ray生态演进</h2>  <p>随着网络环境日益复杂，V2Ray项目也在持续进化。近期值得关注的新特性包括： - XTLS技术（传输层性能提升50%以上） - VLESS协议（简化配置同时增强安全性） - Reality协议（突破深度包检测的新方案）</p>  <p>建议技术爱好者定期关注V2Ray官方博客和GitHub仓库，及时获取最新技术动态。</p>  <h2>结语：掌握数字世界的钥匙</h2>  <p>通过本指南，你不仅学会了在路由器上部署V2Ray的技术细节，更掌握了一套完整的网络自由解决方案。这种能力在当今时代显得尤为珍贵——它不仅是突破网络限制的工具，更是保护数字隐私的盾牌，理解网络运作的窗口。</p>  <p>记住，技术本身是中立的，关键在于使用者的目的和方式。希望你能善用这些知识，在享受开放网络的同时，也为构建更自由、更安全的互联网环境贡献力量。</p>  <p><strong>语言点评</strong>：本文采用了技术说明与人文关怀相结合的独特叙述风格，既保证了技术细节的准确性，又避免了枯燥的说明书式表达。通过设问、排比等修辞手法，将复杂的网络代理技术转化为生动易懂的指南文章。专业术语与通俗解释的平衡把握得当，既满足了技术爱好者的深度需求，又照顾了普通用户的理解能力。段落节奏张弛有度，技术内容与实用建议交错呈现，使读者在获取知识的同时保持阅读兴趣。</p>                 </div>
                 <div class="clearfix"></div>
@@ -154,16 +157,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-9-19-free-ssr-node.htm" title="V2ray 推荐 - 9月19日20.8M/S|免费Clash节点/Shadowrocket节点/SSR/V2ray节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 9月19日20.8M/S|免费Clash节点/Shadowrocket节点/SSR/V2ray节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/news/article-153849.htm" title="隐匿与灵活之争：Trojan与V2Ray深度解析与实战指南">隐匿与灵活之争：Trojan与V2Ray深度解析与实战指南</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-14-clash-windows.htm" title="V2ray 推荐 - 9月14日20.9M/S|免费Shadowrocket节点/SSR/Clash节点/V2ray节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 9月14日20.9M/S|免费Shadowrocket节点/SSR/Clash节点/V2ray节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/news/article-150223.htm" title="突破网络限制：科学上网畅玩《植物大战僵尸2》全攻略">突破网络限制：科学上网畅玩《植物大战僵尸2》全攻略</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-21-clash-node-daily-updates.htm" title="V2ray 推荐 - 9月21日19.8M/S|免费V2ray节点/SSR/Clash节点/Shadowrocket节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 9月21日19.8M/S|免费V2ray节点/SSR/Clash节点/Shadowrocket节点推荐，V2rayC梯子购买推荐</a></li>
                         <li class="py-2"><a href="/news/article-151298.htm" title="手把手教你用Shadowrocket配置V2Ray：iOS设备上的安全上网指南">手把手教你用Shadowrocket配置V2Ray：iOS设备上的安全上网指南</a></li>
-                        <li class="py-2"><a href="/news/article-145918.htm" title="全面掌握k3官改clash：从原理到实战的高级代理管理指南">全面掌握k3官改clash：从原理到实战的高级代理管理指南</a></li>
-                        <li class="py-2"><a href="/news/article-151654.htm" title="小米手机Clash设置全攻略：解锁数字世界的自由之门">小米手机Clash设置全攻略：解锁数字世界的自由之门</a></li>
-                        <li class="py-2"><a href="/news/article-146325.htm" title="从GitHub获取v2rayng：解锁网络自由的完整指南与深度体验">从GitHub获取v2rayng：解锁网络自由的完整指南与深度体验</a></li>
-                        <li class="py-2"><a href="/news/article-149887.htm" title="突破网络限制：科学上网的终极配置指南与实用技巧">突破网络限制：科学上网的终极配置指南与实用技巧</a></li>
-                        <li class="py-2"><a href="/news/article-147058.htm" title="掌握Shadowrocket的URL智能路由：打造个性化网络加速方案">掌握Shadowrocket的URL智能路由：打造个性化网络加速方案</a></li>
-                        <li class="py-2"><a href="/news/article-145368.htm" title="网络代理工具双雄对决：Clash与蓝帆云的深度解析与选择指南">网络代理工具双雄对决：Clash与蓝帆云的深度解析与选择指南</a></li>
-                        <li class="py-2"><a href="/news/article-148796.htm" title="全面掌握ShadowRocket：解锁网络自由的专业指南">全面掌握ShadowRocket：解锁网络自由的专业指南</a></li>
-                        <li class="py-2"><a href="/news/article-150944.htm" title="家庭网络自由之路：手把手教你用V2Ray武装路由器实现全局代理">家庭网络自由之路：手把手教你用V2Ray武装路由器实现全局代理</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-9-22-clash-node.htm" title="V2ray 推荐 - 9月22日18.8M/S|免费Clash节点/Shadowrocket节点/SSR/V2ray节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 9月22日18.8M/S|免费Clash节点/Shadowrocket节点/SSR/V2ray节点推荐，V2rayC梯子购买推荐</a></li>
                         <li class="py-2"><a href="/news/article-146694.htm" title="深度解析安卓Clash耗电之谜：从原理到实战优化指南">深度解析安卓Clash耗电之谜：从原理到实战优化指南</a></li>
+                        <li class="py-2"><a href="/news/article-145368.htm" title="网络代理工具双雄对决：Clash与蓝帆云的深度解析与选择指南">网络代理工具双雄对决：Clash与蓝帆云的深度解析与选择指南</a></li>
+                        <li class="py-2"><a href="/news/article-152392.htm" title="深度剖析影梭科学上网工具：从原理到实践的完整指南">深度剖析影梭科学上网工具：从原理到实践的完整指南</a></li>
                     </ul>
     </div>
 </div>
@@ -175,7 +178,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-09/" title="2025-09 归档">2025-09</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">14</span> <a href="/date/2025-08/" title="2025-08 归档">2025-08</a></h4>
@@ -193,8 +196,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="copyright">
-                                                <p>
+                                                <p>本站内容仅供学习与技术研究用途，无意传播或倡导任何违反法律法规的行为。在此声明：用户须自行了解所在地法律法规，合法合规使用；因使用不当产生的法律责任，与本站及作者无关；请在使用前仔细阅读本声明，继续使用即视为同意以上条款。</p>
+                    <p>
                                                 <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
                                                 <a href="/paid-subscribe/">推荐机场</a> |
                                                 <a href="/news/">新闻资讯</a> |
                                                 <a href="/client.htm">客户端</a> |
@@ -203,7 +208,7 @@
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                            <p>
+                                                <p>
                                 <a href="/">V2ray推荐 免费节点中文站</a> 版权所有 Powered by WordPress
                             </p>
                         </div>
