@@ -352,19 +352,9 @@ Clash支持Windows、Linux、macOS、Android等主流平台，部署灵活。</p
         Sing-box 在性能优化上更为出色，特别是在高并发连接下延迟更低。它采用 Go 语言编写并优化了内存占用，比传统 Clash 内核运行更轻盈，尤其适合服务器端部署或移动端设备使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的重写规则可实现哪些功能？</h5></div>
+    <div class="panel-heading"><h5>Clash 的 Rule Provider 自动更新规则如何操作？</h5></div>
     <div class="panel-body">
-        QuantumultX 的重写规则支持请求头修改、响应内容修改、广告屏蔽及自动跳转。结合脚本可实现自动签到、流量统计和定制化网络访问，极大增强客户端灵活性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 在使用订阅时要注意什么？</h5></div>
-    <div class="panel-body">
-        在 Shadowrocket 中添加订阅时，应确保链接以 https 开头且格式正确。此外，若节点更新失败，可尝试关闭缓存或重新获取订阅链接，以保证配置文件同步最新节点数据。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何实现域名精确分流？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持按域名匹配流量，将不同应用流量分配到指定节点。结合策略组使用，可自动选择最优节点，提高访问速度和网络稳定性，实现精确流量管理。<hr />    </div>
+        Rule Provider 可以通过远程 URL 自动下载规则和节点，定期更新无需手动操作。结合策略组使用，可保持节点和分流规则最新，提高访问速度和网络可用性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 是否支持多节点测试？</h5></div>
@@ -372,9 +362,19 @@ Clash支持Windows、Linux、macOS、Android等主流平台，部署灵活。</p
         Potatso Lite 支持手动测试单个节点延迟，但不支持批量自动测速。用户需逐个连接测试节点性能，或者结合其他客户端获取更全面的测速信息。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何按 IP 段实现智能分流？</h5></div>
+    <div class="panel-heading"><h5>Potatso Lite 节点手动切换有什么优势？</h5></div>
     <div class="panel-body">
-        Sing-box 支持根据 IP 段匹配流量，将国内流量直连、国外流量走代理。结合策略组和规则文件，实现精细化流量管理，保证访问速度和稳定性，同时提高节点使用效率。<hr />    </div>
+        手动切换节点可以让用户根据网络延迟和用途选择最合适的节点，适合在节点不稳定或特殊访问需求下使用。虽然不自动，但可以灵活调整，提高访问效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 在使用订阅时要注意什么？</h5></div>
+    <div class="panel-body">
+        在 Shadowrocket 中添加订阅时，应确保链接以 https 开头且格式正确。此外，若节点更新失败，可尝试关闭缓存或重新获取订阅链接，以保证配置文件同步最新节点数据。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 的重写规则可实现哪些功能？</h5></div>
+    <div class="panel-body">
+        QuantumultX 的重写规则支持请求头修改、响应内容修改、广告屏蔽及自动跳转。结合脚本可实现自动签到、流量统计和定制化网络访问，极大增强客户端灵活性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash for Android 如何导入订阅并自动更新？</h5></div>
@@ -387,14 +387,14 @@ Clash支持Windows、Linux、macOS、Android等主流平台，部署灵活。</p
         路由规则支持按域名、IP 地址、端口、协议类型或用户标签进行匹配。结合策略组，可实现国内直连、国外代理或特定节点定向分流，满足不同网络需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 Rule Provider 自动更新规则如何操作？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何实现域名精确分流？</h5></div>
     <div class="panel-body">
-        Rule Provider 可以通过远程 URL 自动下载规则和节点，定期更新无需手动操作。结合策略组使用，可保持节点和分流规则最新，提高访问速度和网络可用性。<hr />    </div>
+        Sing-box 支持按域名匹配流量，将不同应用流量分配到指定节点。结合策略组使用，可自动选择最优节点，提高访问速度和网络稳定性，实现精确流量管理。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 节点手动切换有什么优势？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何按 IP 段实现智能分流？</h5></div>
     <div class="panel-body">
-        手动切换节点可以让用户根据网络延迟和用途选择最合适的节点，适合在节点不稳定或特殊访问需求下使用。虽然不自动，但可以灵活调整，提高访问效率。    </div>
+        Sing-box 支持根据 IP 段匹配流量，将国内流量直连、国外流量走代理。结合策略组和规则文件，实现精细化流量管理，保证访问速度和稳定性，同时提高节点使用效率。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -423,16 +423,16 @@ Clash支持Windows、Linux、macOS、Android等主流平台，部署灵活。</p
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-5-free-clash.htm" title="V2ray 推荐 - 10月5日20.6M/S|免费V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月5日20.6M/S|免费V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-7-free-v2ray-subscribe.htm" title="V2ray 推荐 - 11月7日21.5M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 11月7日21.5M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-22-clash-v2ray-ss-ssr.htm" title="V2ray 推荐 - 10月22日20.3M/S|免费Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月22日20.3M/S|免费Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-8-free-high-speed-nodes.htm" title="V2ray 推荐 - 10月8日20.1M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月8日20.1M/S|免费Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-20-free-clash-subscribe.htm" title="V2ray 推荐 - 10月20日19.8M/S|免费Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月20日19.8M/S|免费Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-10-shadowrocket-node.htm" title="V2ray 推荐 - 10月10日22.9M/S|免费SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月10日22.9M/S|免费SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-6-shadowrocket-node.htm" title="V2ray 推荐 - 10月6日18M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月6日18M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-2-clash-node.htm" title="V2ray 推荐 - 11月2日21.9M/S|免费SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 11月2日21.9M/S|免费SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-18-free-v2ray.htm" title="V2ray 推荐 - 11月18日21.5M/S|免费Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 11月18日21.5M/S|免费Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-15-free-v2ray.htm" title="V2ray 推荐 - 11月15日19.6M/S|免费Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 11月15日19.6M/S|免费Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-4-clash-windows.htm" title="V2ray 推荐 - 11月4日20.4M/S|免费SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 11月4日20.4M/S|免费SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-15-free-shadowrocket-node.htm" title="V2ray 推荐 - 10月15日20.4M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月15日20.4M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-6-shadowrocket-node.htm" title="V2ray 推荐 - 10月6日18M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月6日18M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-6-free-ssr-node.htm" title="V2ray 推荐 - 11月6日20.4M/S|免费SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 11月6日20.4M/S|免费SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-4-free-clash.htm" title="V2ray 推荐 - 10月4日18.6M/S|免费Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月4日18.6M/S|免费Clash节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-12-free-subscribe-node.htm" title="V2ray 推荐 - 11月12日20.4M/S|免费V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 11月12日20.4M/S|免费V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-13-free-clash-subscribe.htm" title="V2ray 推荐 - 10月13日22.3M/S|免费Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 10月13日22.3M/S|免费Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-11-free-v2ray.htm" title="V2ray 推荐 - 11月11日22.8M/S|免费Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐">V2ray 推荐 - 11月11日22.8M/S|免费Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -444,7 +444,7 @@ Clash支持Windows、Linux、macOS、Android等主流平台，部署灵活。</p
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
